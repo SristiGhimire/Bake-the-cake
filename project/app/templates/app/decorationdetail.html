@@ -1,0 +1,74 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}
+Decoration details
+{% endblock %}
+{% block content %}
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1 class="shop-heading">Decoration-Details</h1>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+<!--product details-->
+<style>
+    .row{
+        display: flex;
+    }
+</style>
+<div class="container" style="margin-left: 250px;">
+    <div class="row pt-5 pb-5">
+        <div class="col-md-6">
+            <img src="{{product_detail.image.url}}" class="img-fluid" alt="no image found.." width="300" height="400">
+        </div>
+        <div class="col-md-6 pt-5" style="margin-left: 60px; margin-right: 250px; ">
+            <h1 class="shop-heading">{{product_detail.name}}</h1>
+            <p class="description" style="text-align: justify;">
+                {{product_detail.description}}
+            </p>
+            <strong>Quantity</strong> :<input type="number" name="quantity" value="1" class="form-control">
+
+            <br><h3 class="pt-4 pb-4">Price: Rs.{{product_detail.price}}</h3>
+            
+            
+
+            
+            
+            
+        </div>
+    </div>  
+</div>
+
+
+<!-- related products-->
+<div class="container">
+    <div class="row">
+        <div class="shop-container">
+            <h1 class="shop-heading"><strong>You may like these theme</strong></h1>
+            <div class="product-grid">
+                {% for decorationdetail in products %}
+                <div class="col-md-3" style="margin-right: 40px; margin-left: 40px;">
+                    <a href="{% url 'decorationdetail' decorationdetail.id %}"> <!-- Pass item.id as the argument -->
+                        <img src="{{ decorationdetail.image.url }}" class="product-image" style="height: 280px; width: 200px">
+                        <h3 class="decoration-title" style="text-decoration: none; margin-top: 20px; color: black;">{{ decorationdetail.name }}</h3>
+                        <strong class="product-price" style=" text-decoration: none; margin-bottom: 20px; color: black;">${{ decorationdetail.price }}</strong>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% endblock %}

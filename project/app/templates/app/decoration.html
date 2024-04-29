@@ -1,0 +1,99 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}
+index
+{% endblock %}
+{% block content %}
+
+
+<style>
+    .shop-container {
+        padding-top: 70px; /* Add some padding above the shop content */
+        margin-left: 160px;
+        margin-right: 160px;
+    }
+
+    .product-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Arrange items evenly across the container */
+    }
+
+    .product-item {
+        width: calc(25% - 20px); /* Adjust the width of each item */
+        margin-bottom: 20px; /* Add some margin at the bottom of each item */
+    }
+
+    .product-image {
+        width: 100%; /* Set width to fill the container */
+        height: 400px; /* Maintain aspect ratio */
+    }
+
+    .product-title {
+        margin-top: 10px; /* Add some space between the image and the title */
+		font-family: Arial;
+		text-decoration: none;
+		color: black;
+    }
+
+    .product-price {
+        display: block;
+        margin-top: 5px; /* Add some space between the title and the price */font-family: Arial;
+		text-decoration: none;
+		color: black;
+    }
+
+    .cross-icon {
+        width: 20px; /* Adjust the width of the cross icon */
+    }
+
+    .shop-heading {
+        margin-top: 40px; /* Adjust as needed */
+        margin-bottom: 60px; /* Adjust as needed */
+        font-size: 30px; /* Adjust as needed */
+        color: #eb4646; /* Your desired color */
+        font-family: 'Arial', sans-serif; /* Your desired font family */
+        font-weight: bold;
+        {% comment %} margin-left: 20px; {% endcomment %}
+    }
+
+    .description {
+        margin-bottom: 30px;
+    }
+</style>
+
+
+
+
+
+<div class="product-section">
+	<div class="container">
+		<div class="row">
+
+
+			<!-- Start Column 2 -->
+			<div class="shop-container">
+				<h1 class="shop-heading"><storng>Decorate with us</strong></h1>
+				<div class="product-grid">
+					{% for item in decorations %}
+					<div class="col-md-3">
+						<a href="{% url 'decorationdetail' item.id  %}">
+							<img src="{{ item.image.url }}" class="product-image" style="height: 200px;">
+							<h3 class="decoration-title" style="margin-top: 20px;">{{ item.name }}</h3>
+							<strong class="product-price" style="margin-bottom: 20px;" >${{ item.price }}</strong>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			
+			<!-- End Column 2 -->
+
+
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+.shop-container {
+    padding-top: 70px; /* Add some padding above the shop content */
+    margin-left: 160px;
+    margin-right: 160px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Arrange items evenly across the container */
+}
+
+.product-item {
+    width: calc(25% - 20px); /* Adjust the width of each item */
+    margin-bottom: 20px; /* Add some margin at the bottom of each item */
+}
+
+.product-image {
+    width: 70%; /* Set width to fill the container */
+    height: 200px; /* Maintain aspect ratio */
+}
+
+.product-title {
+    margin-top: 10px; /* Add some space between the image and the title */
+    font-family: Arial;
+    text-decoration: none;
+    color: black;
+}
+
+.product-price {
+    display: block;
+    margin-top: 5px; /* Add some space between the title and the price */
+    font-family: Arial;
+    text-decoration: none;
+    color: black;
+}
+
+.cross-icon {
+    width: 20px; /* Adjust the width of the cross icon */
+}
+
+.shop-heading {
+    margin-top: 40px; /* Adjust as needed */
+    margin-bottom: 60px; /* Adjust as needed */
+    font-size: 30px; /* Adjust as needed */
+    color: #eb4646; /* Your desired color */
+    font-family: 'Arial', sans-serif; /* Your desired font family */
+    font-weight: bold;
+}
+
+.description {
+    margin-bottom: 30px;
+}

@@ -1,0 +1,114 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}
+contact
+{% endblock %}
+{% block content %}
+
+
+		
+<!-- contact form -->
+
+<style>
+  .form-control{
+    height: 40px;
+    width: 300px;
+    margin: 10px;
+
+   } 
+   .row{
+      display: flex;
+      margin-left: 100px;
+   }
+
+
+   .button{
+    margin-top: 30px;
+  }
+
+  input[type=text], input[type=email], select, textarea, email {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical 
+}
+
+input[type=submit] {
+  background-color: #ffd2d2;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.text-black{
+  font-family: Arial;
+}
+
+.form-comtrol placeholder{
+  font-family: Arial;
+}
+
+
+</style>
+        <div class="container1" style="margin-top: 150px;">
+          <h1 class="shop-heading" style="margin-left: 160px; "><strong>Contact Us</strong></h1>
+          <div class = "row">
+            <div class = "col-md-6">
+              <form method="post" action="{% url 'contact' %}" style="margin-left: 160px;">
+                {% csrf_token %}
+                
+                    <div class="form-group">
+                      <label class="text-black" for="fname">First name : </label>
+                      <input type="text" name="fname" class="form-control" id="fname" placeholder="Your name" required>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label class="text-black" for="lname">Last name : </label>
+                      <input type="text" name ="lname" class="form-control" id="lname" placeholder="Your last name" required>
+                    </div>
+                
+                <div class="form-group">
+                  <label class="text-black" for="email">Email address : </label><br>
+                  <input type="email" name ="email" class="form-control" id="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group mb-5">
+                  <label class="text-black" for="message">Message : </label>
+                  <textarea name="message" class="form-controll" id="message" cols="30" rows="5" placeholder="Write something...."></textarea>
+                </div>
+
+                <div class="button">
+                <input type="submit" value="Send message"></input>
+                </div>
+              </form>
+            </div>
+            <div class = "col-md-6">
+              <img src="{% static 'app/images/photoslider/cake1.png' %}" style="margin-left:150px; margin-bottom: 100px;" height="300px" width="500px">
+            </div>
+          </div>
+        </div>
+
+
+
+              <!-- endform-->
+
+
+
+  <!-- End Contact Form -->
+
+		
+
+{% endblock %}
